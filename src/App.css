@@ -1,44 +1,103 @@
+/* src/styles.css */
+
+:root {
+  --bg-color: #f5f7ff;
+  --text-color: #333;
+  --card-bg: white;
+  --accent-color: #667eea;
+  --shadow: 0 10px 30px rgba(0,0,0,0.1);
+  --btn-bg: #f0f4ff;
+  --btn-hover: #e0e7ff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a2e;
+  --text-color: #e6e6e6;
+  --card-bg: #16213e;
+  --accent-color: #0f3460;
+  --shadow: 0 10px 30px rgba(0,0,0,0.5);
+  --btn-bg: #0f3460;
+  --btn-hover: #1a4b8a;
+  --btn-text: white;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--bg-color);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
+  color: var(--text-color);
+  transition: background 0.3s ease;
 }
 
 .card {
-  background: white;
+  background: var(--card-bg);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: var(--shadow);
   text-align: center;
   max-width: 90vw;
   width: 100%;
   max-width: 500px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-control {
+  background: var(--btn-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.btn-control:hover {
+  background: var(--btn-hover);
 }
 
 h1 {
   margin: 0 0 20px;
   font-size: 2.5rem;
-  color: #333;
+  color: var(--text-color);
 }
 
 .week-type {
   font-size: 3rem;
   font-weight: bold;
-  color: #667eea;
+  color: var(--text-color); 
   margin: 20px 0;
   padding: 15px;
   border-radius: 12px;
-  background-color: #f0f4ff;
+  background-color: var(--btn-bg);
   display: inline-block;
   min-width: 200px;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3); 
+}
+.date {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
+/* Адаптив под мобильные */
 @media (max-width: 600px) {
   .card {
     padding: 30px 20px;
@@ -51,5 +110,22 @@ h1 {
   .week-type {
     font-size: 2.2rem;
     padding: 12px;
+  }
+
+  .btn-control {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-control {
+    width: 100%;
+    max-width: 200px;
   }
 }
