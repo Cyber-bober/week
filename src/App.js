@@ -85,7 +85,7 @@ function App() {
 
       <h1>{texts.title}</h1>
       <div className="week-type">{weekType}</div>
-      <div className="date">📅 {currentDate}</div>
+      <div className="date"> 🗓️ {currentDate}</div>
     </div>
   );
 }
